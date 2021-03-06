@@ -5,5 +5,9 @@ import { routes, basename } from './router';
 import './App.css';
 
 export default function App() {
-  return <BrowserRouter basename={basename}>{renderRoutes(routes)}</BrowserRouter>;
+  return (
+    <BrowserRouter basename={basename}>
+      <div>{renderRoutes(routes)}</div>
+    </BrowserRouter>
+  );
 }

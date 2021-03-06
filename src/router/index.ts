@@ -18,49 +18,6 @@ export const routes = [
     name: 'home',
     title: 'HelloWorld'
   },
-  {
-    path: '/demo',
-    component: loadable(() => import('../pages/Demo')),
-    name: 'Demo',
-    title: 'Demo',
-    children: [
-      {
-        path: '/demo/1',
-        component: loadable(() => import('../pages/Demo/Test')),
-        exact: true
-      },
-      {
-        path: '/demo/state',
-        component: loadable(() => import('../pages/Demo/State')),
-        exact: true
-      },
-      {
-        path: '/demo/lifecycle',
-        component: loadable(() => import('../pages/Demo/Lifecycle')),
-        exact: true
-      },
-      {
-        path: '/demo/event',
-        component: loadable(() => import('../pages/Demo/Event')),
-        exact: true
-      },
-      {
-        path: '/demo/form',
-        component: loadable(() => import('../pages/Demo/Form')),
-        exact: true
-      },
-      {
-        path: '/demo/hook',
-        component: loadable(() => import('../pages/Demo/Hook')),
-        exact: true
-      },
-      {
-        path: '/demo/useEffect',
-        component: loadable(() => import('../pages/Demo/Hook/useEffect')),
-        exact: true
-      }
-    ]
-  },
   // 404 Not Found
   {
     path: '*',

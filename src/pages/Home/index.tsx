@@ -1,11 +1,13 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 import { Button } from 'antd';
 import { useDocTitle } from '../../hooks';
 
-function A(props) {
+function A(props: any) {
   const history = useHistory();
-  console.log('a', props);
+  const route = useRouteMatch();
+  console.log('route', route);
+  console.log('props', props);
   return (
     <Button
       onClick={() => {
