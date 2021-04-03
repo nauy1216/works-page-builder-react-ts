@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Redirect, Switch, Route } from 'react-router-dom';
-import { useDocTitle } from '../hooks';
+// import { useDocTitle } from '../hooks';
 
 type RouteConfig = {
   path: string; // 路由地址
@@ -16,7 +16,12 @@ type RouteConfig = {
 // 拦截的逻辑统一在这里处理
 function RouteComponentWrap(props) {
   // const { children } = props;
-  useDocTitle(props.route.title);
+  // const meta = props.route.meta || {};
+  // 检查是否需要登录，如果未登录则重定向到登录页面
+  // if (meta.login) {
+  //   return <Redirect to="/login"></Redirect>;
+  // }
+  // useDocTitle(meta.title);
   return props.children;
 }
 

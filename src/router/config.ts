@@ -11,15 +11,18 @@ export const routes = [
     exact: true,
     component: loadable(() => import('../pages/Login')), // 组件需要你自己准备
     name: 'Login', // 自定义属性
-    title: '登录' // 自定义属性
-    // 这里可以扩展一些自定义的属性
+    meta: {
+      title: '登录' // 自定义属性
+    }
   },
   // 404 Not Found
   {
     path: '/404',
     component: loadable(() => import('../pages/NotFound')),
     name: '404',
-    title: '404'
+    meta: {
+      title: '404' // 自定义属性
+    }
   },
   {
     path: '/',
@@ -31,8 +34,11 @@ export const routes = [
         path: '/home',
         exact: true,
         component: loadable(() => import('../pages/Home')), // 组件需要你自己准备
-        name: 'home', // 自定义属性
-        title: '主页' // 自定义属性
+        name: 'home',
+        meta: {
+          login: true,
+          title: '主页'
+        }
       }
     ]
   }
