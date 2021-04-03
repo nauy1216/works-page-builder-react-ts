@@ -32,7 +32,7 @@ export const routes = [
         exact: true,
         component: loadable(() => import('../pages/Home')), // 组件需要你自己准备
         name: 'home', // 自定义属性
-        title: 'react-home' // 自定义属性
+        title: '主页' // 自定义属性
       }
     ]
   }

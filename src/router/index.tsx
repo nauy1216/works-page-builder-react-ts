@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Switch, Route } from 'react-router-dom';
+import { Redirect, Switch, Route } from 'react-router-dom';
+import { useDocTitle } from '../hooks';
 
 type RouteConfig = {
   path: string; // 路由地址
@@ -12,40 +13,44 @@ type RouteConfig = {
   [prop: string]: any;
 };
 
+// 拦截的逻辑统一在这里处理
+function RouteComponentWrap(props) {
+  // const { children } = props;
+  useDocTitle(props.route.title);
+  return props.children;
+}
+
 export function renderRoutes(routes: RouteConfig[] | undefined) {
   function renderChild(routes: RouteConfig[] | undefined) {
     if (!routes) {
       return null;
     }
-    return [
-      ...routes.map(route => {
-        return (
-          <Route
-            key={route.path}
-            path={route.path}
-            exact={route.exact}
-            strict={route.strict}
-            render={function (props): React.ReactNode {
-              debugger;
-              const Component = route.component;
-              return (
-                <Component {...props} route={route}>
-                  {renderChild(route.children)}
-                </Component>
-              );
-            }}></Route>
-        );
-      }),
-      null
-      // <Redirect key="/404" to="/404"></Redirect>
-    ];
+    return (
+      <Switch>
+        {routes.map(route => {
+          return (
+            <Route
+              key={route.path}
+              path={route.path}
+              exact={route.exact}
+              strict={route.strict}
+              render={function (props): React.ReactNode {
+                const Component = route.component;
+                const children = (
+                  <RouteComponentWrap {...props} route={route}>
+                    <Component {...props} route={route}>
+                      {renderChild(route.children)}
+                    </Component>
+                  </RouteComponentWrap>
+                );
+                return children;
+              }}></Route>
+          );
+        })}
+        <Redirect key="/404" to="/404"></Redirect>
+      </Switch>
+    );
   }
-  const vnode = (
-    <Switch>
-      {renderChild(routes)}
-      {/* <Redirect to="/404"></Redirect> */}
-    </Switch>
-  );
-  debugger;
+  const vnode = renderChild(routes);
   return vnode;
 }

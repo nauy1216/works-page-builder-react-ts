@@ -11,7 +11,7 @@ function A(props: any) {
   return (
     <Button
       onClick={() => {
-        history.replace('/');
+        history.push('/');
       }}>
       新增
     </Button>
