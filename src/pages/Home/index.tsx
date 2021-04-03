@@ -24,6 +24,7 @@ const Home: React.FC<any> = routes => {
   useDocTitle(route.title); // 修改标题
   return (
     <div>
+      <h2>home</h2>
       <A></A>
     </div>
   );
