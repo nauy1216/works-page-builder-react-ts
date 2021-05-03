@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
+import { RouteConfigComponentProps } from 'react-router-config';
 import { Button } from 'antd';
 
 function A(props: any) {
@@ -17,7 +18,7 @@ function A(props: any) {
   );
 }
 
-const Home: React.FC<any> = routes => {
+const Home: React.FC<RouteConfigComponentProps> = routes => {
   console.log('routes', routes);
   return (
     <div>
