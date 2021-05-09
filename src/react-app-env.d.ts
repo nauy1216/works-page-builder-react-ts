@@ -69,3 +69,5 @@ declare module '*.module.sass' {
 }
 
 declare module 'blockly';
+declare module 'blockly/javascript';
+declare module 'blockly/core';

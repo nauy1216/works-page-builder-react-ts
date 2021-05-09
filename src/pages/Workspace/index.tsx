@@ -1,5 +1,5 @@
 import React from 'react';
-import Blockly from '../../blockly/index.jsx';
+import Blockly from '../../packages/blockly/index';
 
 export default class Workspace extends React.Component {
   state = {
