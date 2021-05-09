@@ -1,3 +1,6 @@
 .vscode
 script/**
 puppeteer/**
+config/**
+src/blockly1/**
+src/blockly/**

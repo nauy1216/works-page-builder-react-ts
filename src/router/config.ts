@@ -39,6 +39,16 @@ export const routes = [
           login: true,
           title: '主页'
         }
+      },
+      {
+        path: '/workspace',
+        exact: true,
+        component: loadable(() => import('../pages/Workspace')), // 组件需要你自己准备
+        name: 'home',
+        meta: {
+          login: true,
+          title: '主页'
+        }
       }
     ]
   }

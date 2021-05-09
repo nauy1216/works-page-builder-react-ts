@@ -1,0 +1,6 @@
+#blocklyDiv {
+  height: calc(100% - 30px);
+  width: 100%;
+  position: absolute;
+  top: 30px;
+}
