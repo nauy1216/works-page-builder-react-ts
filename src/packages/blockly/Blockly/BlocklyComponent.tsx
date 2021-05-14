@@ -25,6 +25,7 @@ class BlocklyComponent extends React.Component<Props> {
     const { initialXml, children, ...rest } = this.props;
     this.primaryWorkspace = Blockly.inject(this.blocklyDiv.current, {
       toolbox: this.toolbox.current,
+      scrollbars: true,
       ...rest
     });
 
